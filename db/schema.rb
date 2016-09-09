@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160826213420) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
     t.integer  "attempts",   default: 0, null: false
@@ -27,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160826213420) do
     t.datetime "updated_at"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "routes", force: :cascade do |t|
     t.datetime "created_at",     null: false
@@ -48,7 +51,7 @@ ActiveRecord::Schema.define(version: 20160826213420) do
     t.string   "stop_sequence"
   end
 
-  add_index "stops", ["trip_id"], name: "index_stops_on_trip_id"
+  add_index "stops", ["trip_id"], name: "index_stops_on_trip_id", using: :btree
 
   create_table "subscriptions", force: :cascade do |t|
     t.datetime "created_at",   null: false
@@ -78,6 +81,8 @@ ActiveRecord::Schema.define(version: 20160826213420) do
     t.integer  "route_id"
   end
 
-  add_index "trips", ["route_id"], name: "index_trips_on_route_id"
+  add_index "trips", ["route_id"], name: "index_trips_on_route_id", using: :btree
 
+  add_foreign_key "stops", "trips"
+  add_foreign_key "trips", "routes"
 end

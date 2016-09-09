@@ -15,13 +15,11 @@ gem 'twilio-ruby'
 
 gem 'delayed_job_active_record'
 
-group :development, :test do 
-	gem 'sqlite3'
-end
+gem 'pg'
 
 group :production do 
- 	gem 'pg'
  	gem 'thin'
+ 	gem 'rails_12factor'
 end
 
 
