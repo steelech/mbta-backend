@@ -2,8 +2,7 @@ class StopsController < ApplicationController
 
 	def index
 		if(params[:trip_id])
-			puts "trip_id: #{params[:trip_id]}"
-			@stops = Stop.where("trip_id = ?", params[:trip_id])
+			@stops = Stop.where("trip_id = ?", params[:trip_id]).order(:stop_sequence)
 		else
 			@stops = Stop.all
 		end

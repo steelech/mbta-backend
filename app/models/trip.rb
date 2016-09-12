@@ -12,6 +12,7 @@ class Trip < ActiveRecord::Base
                         }
                 end
 
+
                 stops.each do |stop| 
                         self.stops.create(stop)
                 end
