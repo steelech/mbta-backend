@@ -6,14 +6,14 @@ class Route < ActiveRecord::Base
                 direction_id = direction["direction_id"]
                 direction_name = direction["direction_name"]
         		direction["trip"].each do |trip|
-                    if not before_now?(trip)
+                    # if not before_now?(trip)
                         this_trip = Trip.create({:trip_name => format_trip_name(trip["trip_name"]), 
                                                  :trip_id => trip["trip_id"],
                                                  :direction_id => direction_id, 
                                                  :direction_name => direction_name})
                         this_trip.parse_stops(trip)
                         self.trips << this_trip
-                    end
+                    # end
         		end
         	end
         end
