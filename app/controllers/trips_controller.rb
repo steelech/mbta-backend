@@ -12,12 +12,14 @@ class TripsController < ApplicationController
 
                 end
 
-		render json: @trips, include: 'stops'
+		# render json: @trips, include: 'stops'
+        render json: @trips
 	end
 
         def show
         	headers['Access-Control-Allow-Origin'] = '*'
-        	render json: @trip, include: 'stops'
+        	# render json: @trip, include: 'stops'
+            render json: @trip
         end
 
         private
