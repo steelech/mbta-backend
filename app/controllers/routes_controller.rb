@@ -3,7 +3,8 @@ class RoutesController < ApplicationController
 	def index
                          headers['Access-Control-Allow-Origin'] = '*'
  			if(params[:route_name])
-                                @routes = Route.where("route_name LIKE (?)", "%#{params[:route_name]}%")
+                        route_name = params[:route_name].capitalize
+                                @routes = Route.where("route_name LIKE (?)", "%#{route_name}%")
                         else
                                 @routes = Route.all
                         end
