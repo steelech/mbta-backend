@@ -8,15 +8,12 @@ class RoutesController < ApplicationController
                         else
                                 @routes = Route.all
                         end
-
-                        # render json: @routes, include: "trips"
                         render json: @routes
 
 
 	end
 
         def show
-        	# render json: @route, include: 'trips'
             render json: @route
         end
 
