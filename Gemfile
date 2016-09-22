@@ -20,7 +20,7 @@ gem 'pg'
 gem 'database_cleaner'
 
 group :production do 
- 	gem 'thin'
+ 	# gem 'thin'
  	gem 'rails_12factor'
 end
 
