@@ -17,6 +17,8 @@ gem 'delayed_job_active_record'
 
 gem 'pg'
 
+gem 'database_cleaner'
+
 group :production do 
  	gem 'thin'
  	gem 'rails_12factor'

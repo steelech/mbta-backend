@@ -45,6 +45,7 @@ GEM
     builder (3.2.2)
     concurrent-ruby (1.0.2)
     daemons (1.2.4)
+    database_cleaner (1.5.3)
     delayed_job (4.1.2)
       activesupport (>= 3.0, < 5.1)
     delayed_job_active_record (4.1.1)
@@ -136,6 +137,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.0.rc2)
+  database_cleaner
   delayed_job_active_record
   json
   pg
