@@ -7,7 +7,7 @@ class TwilioClient
 	end
 
 	def send_message(message_body)
-		@client.messages.create(
+		@client.messages.delay.create(
 		  from: '+17745677236',
 		  to: '17817333245',
 		  body: message_body
