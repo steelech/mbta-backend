@@ -9,8 +9,7 @@ module Clockwork
 	end
 
 	every(10.seconds, "second job") do 
-		job = SubscriptionsJob.new("hi")
-		Delayed::Job.enqueue job
+		SubscriptionsJob.delay.perform
 	end
 end
 
