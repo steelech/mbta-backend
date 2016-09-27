@@ -17,8 +17,15 @@ class SubscriptionsController < ApplicationController
 							  route_id: route_id, 
 							  phone_number: phone_number,
 							  trip_name: trip_name })
-		message_body = "You have subscribed to #{trip_name} using this number.  You will receive real-time notifications regarding service alerts 
-		and other relevant information for the trip you subscribed to.  To unsubscribe from notifications for this trip, please visit https://mbta-notifications-app.herokuapp.com/"
+		
+		message_body = "You have subscribed to #{trip_name} using 
+				this number.  You will receive real-time
+				 notifications regarding service alerts 
+				and other relevant information for the trip
+	       			you subscribed to.  To unsubscribe from 
+				notifications for this trip, please visit 
+				https://mbta-notifications-app.herokuapp.com/"
+		
 		TwilioClient.new.send_message(message_body)
 		render json: {}
 	end
